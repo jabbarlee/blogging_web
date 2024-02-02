@@ -1,0 +1,102 @@
+#wrapper{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin: 20px;
+    gap: 50px;
+}
+
+.post-comp{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: auto;
+    border: 1px solid gray;
+    border-radius: 50px;
+    padding: 35px;
+}
+#post-comp{
+    background-color: #f8ffe5;
+    border-color: #d8dbd2;
+}
+.inputs{
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid gray;
+    width: 220px;
+    resize: none;
+}
+#input-side{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+#button-side{
+    display: flex; 
+    flex-direction: row;
+    justify-content: center;
+    gap: 20px;
+}
+#description-input{
+    height: 100px;
+}
+
+#post-label{
+    display: flex;
+    justify-content: center;
+    font-size: large;
+}
+
+
+#post-button{
+    padding: 10px;
+    border-radius: 25px;
+    border: 1px solid gray;
+    width: 110px;
+    color: aliceblue;
+    background-color: rgb(60, 60, 174);
+    border-color: rgb(60, 60, 174);
+}
+#post-button:hover{
+    background-color: rgb(81, 81, 206);
+    border: 1px solid rgb(81, 81, 206);
+    cursor: pointer;
+}
+#clear-button{
+    padding: 10px;
+    border-radius: 25px;
+    border: 1px solid gray;
+    width: 110px;
+}
+#clear-button:hover{
+    cursor: pointer;
+    background-color: aliceblue;
+}
+
+/*--------CARD----------*/
+#card{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 20px;
+    border: 1px solid #d8dbd2;
+    border-radius: 25px;
+    width: 400px;
+}
+#author{
+    font-style: italic;
+}
+#desc-side{
+    overflow-y: scroll;
+    height: auto;
+    max-height: 200px;
+}
+
+#cards-side{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    overflow-y: scroll;
+    max-height: 400px;
+}
