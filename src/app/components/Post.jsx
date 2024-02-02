@@ -3,28 +3,32 @@
 import { useState } from "react"
 import axios from "axios";
 
-export default function Post(){
-    const [title, setTitle] = useState();
-    const [description, setDescription] = useState();
-    const [name, setName] = useState();
+export default function Post({setCards}){
+    const [title, setTitle] = useState('');
+    const [description, setDescription] = useState('');
+    const [name, setName] = useState('');
 
-    const clearInputs = () => {
-        setTitle('');
-        setName('');
-        setDescription('');
-    }
+    const handlePublish= () => {
+        console.log(`
+            Title: ${title}
+            Description: ${description}
+            Name: ${name}    
+        `)
 
-    const handlePublish = () => {
-        axios.post('http://localhost:5000/post', {
-            title,
-            description,
-            name,
-        })
-        .catch((error) => console.warn(error));
+        setCards(prevState => ({
+            title: [...prevState.title, title],
+            description: [...prevState.description, description],
+            fullname: [...prevState.fullname, name]
+        }))
 
         clearInputs();
     }
 
+    const clearInputs = () => {
+        setTitle('');
+        setDescription('');
+        setName('');
+    } 
     return (
         <div className="post-comp" id="post-comp">
             <div>
@@ -57,7 +61,7 @@ export default function Post(){
             </div>
             <div id="button-side">
                 <button id="post-button" onClick={handlePublish}>Publish</button>
-                <button id="clear-button" onClick={clearInputs}>Clear</button>
+                {/* <button id="clear-button" onClick={clearInputs}>Clear</button> */}
             </div>
         </div>
     )

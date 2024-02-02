@@ -4,12 +4,7 @@ import Card from './Card'
 import { useEffect, useState } from 'react'
 import axios from 'axios'
 
-export default function Dashboard(){
-    const [clientCards, setClientCards] = useState({
-        title: [],
-        description: [],
-        fullname: []
-    })
+export default function Dashboard({ cards, setCards}){
     const [databaseList, setDatabaseList] = useState({
         id: [],
         title: [],
@@ -36,23 +31,22 @@ export default function Dashboard(){
     }, [])
 
     useEffect(() => {
-        setClientCards({
+        setCards({
             title: databaseList.title,
             description: databaseList.description,
             fullname: databaseList.fullname,
         })
     }, [databaseList])
 
-    console.log(clientCards)
     return(
         <div className="post-comp">
             <div>
                 <input placeholder="Search..." className="inputs"/>
             </div>
             <div id='cards-side'>
-                {clientCards.title.map((item, index) => {
+                {cards.title.map((item, index) => {
                     return(
-                        <Card title={item} description={clientCards.description[index]} fullname={clientCards.fullname[index]}/>
+                        <Card title={item} description={cards.description[index]} fullname={cards.fullname[index]}/>
                     )
                 })}
             </div>
