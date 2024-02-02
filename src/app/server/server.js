@@ -29,6 +29,21 @@ const getData = async(req, res) => {
 
 app.get('/data', getData);
 
+app.post('/post', (req, res) => {
+    const title = req.body.title;
+    const description = req.body.description;
+    const name = req.body.name;
+
+    pool.query(`
+        INSERT INTO blog_posts ("title", "description", "fullname")
+        VALUES ($1, $2, $3)
+    `, [title, description, name], (err) => {
+        if(err){
+            console.log('Error inserting to database' + err);
+            res.status(500).send('Database error'); 
+        }   
+    });
+})
 app.listen(PORT, () => {
     console.log(`The server is runnng on port: ${PORT}`);
 })

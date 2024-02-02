@@ -22,6 +22,15 @@ export default function Post({setCards}){
         }))
 
         clearInputs();
+        insertToDatabase();
+    }
+
+    const insertToDatabase = () => {
+        axios.post('http://localhost:5000/post', {
+            title: title,
+            description: description,
+            name: name,
+        }).catch(error => console.log(error))
     }
 
     const clearInputs = () => {
